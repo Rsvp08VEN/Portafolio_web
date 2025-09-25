@@ -1,0 +1,50 @@
+@import '../../../../assets/styles/variables';
+@import '../../../../assets/styles/mixins';
+
+.project-card {
+    text-align: center;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: $border-radius-md;
+        margin-bottom: 1em;
+    }
+
+    .project-tech {
+        margin-top: 1em;
+        margin-bottom: 1em;
+
+        .tech-tag {
+            display: inline-block;
+            background-color: $light-grey;
+            color: $tertiary-text;
+            padding: 0.3em 0.7em;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin: 0.3em;
+        }
+    }
+
+    .project-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; // Para que los botones caigan en mobile
+
+        .btn-secondary {
+            margin-right: 0.5em;
+            margin-left: 0.5em;
+            margin-top: 1em; // Para separar del contenido superior
+        }
+    }
+
+    @include media-mobile {
+        .project-links {
+            flex-direction: column; // Botones uno debajo del otro
+            .btn-secondary {
+                width: 100%;
+                margin: 0.5em auto;
+            }
+        }
+    }
+}

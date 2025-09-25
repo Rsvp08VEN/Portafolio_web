@@ -1,0 +1,96 @@
+// Reset CSS
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-body;
+    color: $secondary-text;
+    background-color: $primary-bg;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: $base-font-size; // Base font size
+}
+
+a {
+    color: $accent-color;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+// Base Typography
+h1, h2, h3 {
+    font-family: $font-heading;
+    color: $secondary-text;
+    margin-bottom: 0.8em;
+}
+
+h1 { font-size: 3em; font-weight: 700; }
+h2 { font-size: 2.2em; font-weight: 600; text-align: center; margin-bottom: 1.5em;}
+h3 { font-size: 1.5em; font-weight: 400; }
+
+// Responsive Typography
+@include media-tablet {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+}
+
+@include media-mobile {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.2em; }
+    p { font-size: 1em; }
+}
+
+// Global Section Styling (Shared across all components)
+.section {
+    padding: $section-padding-desktop;
+    max-width: $breakpoint-desktop;
+    margin: 0 auto;
+
+    @include media-tablet {
+        padding: $section-padding-tablet;
+    }
+    @include media-mobile {
+        padding: $section-padding-mobile;
+    }
+}
+
+.column-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+
+    @include media-mobile {
+        flex-direction: column;
+        gap: $spacing-sm;
+    }
+}
+
+.column {
+    flex: 1;
+    min-width: 300px;
+    padding: $spacing-md;
+    background-color: $section-bg-alt;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-sm;
+
+    @include media-tablet {
+        flex: 1 1 45%; // Dos columnas en tablet
+    }
+    @include media-mobile {
+        min-width: unset;
+        width: 100%;
+        flex: 1 1 100%; // Una columna en mobile
+    }
+}

@@ -1,1 +1,28 @@
-<p>header works!</p>
+<header class="header">
+  <nav class="nav-container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="#home">Mi Portafolio</a>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links" [class.open]="isMenuOpen">
+      <li><a href="#home" (click)="closeMenu()">Inicio</a></li>
+      <li><a href="#about" (click)="closeMenu()">Sobre Mí</a></li>
+      <li><a href="#skills" (click)="closeMenu()">Habilidades</a></li>
+      <li><a href="#projects" (click)="closeMenu()">Proyectos</a></li>
+      <li><a href="#contact" (click)="closeMenu()">Contacto</a></li>
+    </ul>
+
+    <!-- Mobile Menu Toggle -->
+    <button 
+      class="menu-toggle" 
+      [class.open]="isMenuOpen" 
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>

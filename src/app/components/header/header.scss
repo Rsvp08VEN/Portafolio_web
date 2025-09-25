@@ -1,0 +1,206 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+// Header con patrón Column Drop
+.header {
+    background-color: $section-bg-alt;
+    box-shadow: $shadow-sm;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0;
+}
+
+.nav-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo nav toggle";
+    align-items: center;
+    max-width: $breakpoint-desktop;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    gap: 2rem;
+
+    // Desktop: Logo | Navigation | (Toggle hidden)
+    @include media-desktop {
+        padding: 1rem 1.5rem;
+    }
+
+    // Tablet: Logo | Navigation | Toggle
+    @include media-tablet {
+        grid-template-columns: auto 1fr auto;
+        padding: 1rem;
+    }
+
+    // Mobile: Logo | | Toggle (Navigation drops below)
+    @include media-mobile {
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: 
+            "logo . toggle"
+            "nav nav nav";
+        padding: 1rem;
+    }
+}
+
+.logo {
+    grid-area: logo;
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    font-weight: 700;
+    
+    a {
+        color: $accent-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        
+        &:hover {
+            color: $accent-color-dark;
+        }
+    }
+
+    @include media-mobile {
+        font-size: 1.3rem;
+    }
+}
+
+.nav-links {
+    grid-area: nav;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+
+    li {
+        a {
+            color: $secondary-text;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: $border-radius-sm;
+            transition: all 0.3s ease;
+            position: relative;
+
+            &:hover {
+                color: $accent-color;
+                background-color: rgba($accent-color, 0.1);
+            }
+
+            // Efecto de línea activa
+            &:active,
+            &.active {
+                color: $accent-color;
+                
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -2px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 80%;
+                    height: 2px;
+                    background-color: $accent-color;
+                }
+            }
+        }
+    }
+
+    // Tablet: Mantener horizontal pero con menos espacio
+    @include media-tablet {
+        gap: 1.5rem;
+        
+        li a {
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
+        }
+    }
+
+    // Mobile: Column Drop - La navegación cae en una nueva fila
+    @include media-mobile {
+        flex-direction: column;
+        width: 100%;
+        background-color: $section-bg-alt;
+        border-top: 1px solid rgba($secondary-text, 0.1);
+        padding: 1rem 0;
+        gap: 0;
+        
+        // Oculto por defecto en mobile
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+        
+        &.open {
+            max-height: 300px;
+            opacity: 1;
+            padding: 1rem 0;
+        }
+
+        li {
+            width: 100%;
+            text-align: center;
+            
+            a {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+                font-size: 1.1rem;
+                border-radius: 0;
+                
+                &:hover {
+                    background-color: rgba($accent-color, 0.05);
+                }
+            }
+        }
+    }
+}
+
+.menu-toggle {
+    grid-area: toggle;
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: $border-radius-sm;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+        background-color: rgba($secondary-text, 0.1);
+    }
+
+    span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: $secondary-text;
+        margin: 4px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    &.open {
+        span:nth-child(1) { 
+            transform: rotate(45deg) translate(6px, 6px); 
+        }
+        span:nth-child(2) { 
+            opacity: 0; 
+        }
+        span:nth-child(3) { 
+            transform: rotate(-45deg) translate(6px, -6px); 
+        }
+    }
+
+    // Mostrar solo en mobile
+    @include media-mobile {
+        display: block;
+    }
+}
+
+// Smooth scroll para los enlaces de navegación
+html {
+    scroll-behavior: smooth;
+}

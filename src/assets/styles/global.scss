@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'mixins';
+@import 'base';
+
+// Puedes añadir aquí cualquier otro estilo global que no encaje en _base.scss
+// o estilos de librerías externas.
+
+// Botones globales usando mixins
+.btn-primary {
+    @include button-style($accent-color, $section-bg-alt, $accent-color, $accent-color-dark);
+}
+
+.btn-secondary {
+    @include button-style(transparent, $accent-color, $accent-color, $accent-color, $section-bg-alt); // El último $section-bg-alt es el color de texto al pasar el ratón
+}
+
+@include media-mobile {
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5em;
+    }
+}

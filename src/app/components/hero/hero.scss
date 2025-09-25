@@ -1,0 +1,55 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+.hero {
+    background-color: $section-bg-alt;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    .hero-content {
+        max-width: 600px;
+        padding: $spacing-md;
+    }
+
+    .hero-image {
+        max-width: 400px;
+        margin-left: $spacing-lg; // 40px
+        flex-shrink: 0;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: $shadow-md;
+            transition: transform 0.3s ease-in-out;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    // Responsive para Hero
+    @include media-tablet {
+        flex-direction: column;
+        text-align: center;
+
+        .hero-image {
+            order: -1;
+            margin-left: 0;
+            margin-bottom: 2em;
+        }
+    }
+
+    @include media-mobile {
+        .hero-image {
+            max-width: 250px;
+            margin-bottom: 1.5em;
+        }
+    }
+}

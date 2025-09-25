@@ -1,0 +1,36 @@
+// Paleta de Colores
+$primary-bg: #F8F8F8;
+$secondary-text: #333333;
+$accent-color: #007bff;
+$accent-color-dark: #0056b3; // Para hover
+$tertiary-text: #666666;
+$section-bg-alt: #FFFFFF;
+$light-grey: #e0e0e0; // Para tech-tags
+
+// Tipografía
+$font-heading: 'Montserrat', sans-serif;
+$font-body: 'Open Sans', sans-serif;
+
+// Tamaños de Fuente Base
+$base-font-size: 16px;
+
+// Espaciado
+$spacing-sm: 10px;
+$spacing-md: 20px;
+$spacing-lg: 40px;
+$section-padding-desktop: 80px 20px;
+$section-padding-tablet: 50px 15px;
+$section-padding-mobile: 40px 10px;
+
+// Border Radius
+$border-radius-sm: 5px;
+$border-radius-md: 8px;
+
+// Sombras
+$shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
+$shadow-md: 0 5px 15px rgba(0,0,0,0.1);
+
+// Breakpoints
+$breakpoint-desktop: 1200px;
+$breakpoint-tablet: 992px;
+$breakpoint-mobile: 768px;
