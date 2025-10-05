@@ -1,0 +1,147 @@
+@import '../../../assets/styles/variables';
+
+.about-section {
+  padding: $section-padding-desktop;
+  background-color: $section-bg-alt;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-family: $font-heading;
+    font-size: 2.5rem;
+    color: $secondary-text;
+    text-align: center;
+    margin-bottom: $spacing-lg;
+    font-weight: 700;
+  }
+  
+  .about-content {
+    display: grid;
+    grid-template-columns: 300px 2fr 1fr;
+    gap: $spacing-lg;
+    align-items: start;
+  }
+  
+  .about-image {
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: $shadow-md;
+      border: 4px solid $accent-color;
+    }
+  }
+  
+  .about-text {
+    font-family: $font-body;
+    
+    p {
+      color: $tertiary-text;
+      line-height: 1.7;
+      margin-bottom: $spacing-md;
+      font-size: 1.1rem;
+      
+      &.intro {
+        font-size: 1.2rem;
+        color: $secondary-text;
+        font-weight: 500;
+      }
+    }
+  }
+  
+  .about-details {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    
+    h3 {
+      font-family: $font-heading;
+      color: $accent-color;
+      font-size: 1.3rem;
+      margin-bottom: $spacing-md;
+      font-weight: 600;
+    }
+    
+    .personal-info,
+    .education,
+    .languages {
+      background-color: $primary-bg;
+      padding: $spacing-md;
+      border-radius: $border-radius-md;
+      box-shadow: $shadow-sm;
+    }
+    
+    .info-item,
+    .education-item,
+    .language-item {
+      margin-bottom: $spacing-sm;
+      font-family: $font-body;
+      
+      strong {
+        color: $secondary-text;
+        font-weight: 600;
+      }
+      
+      span {
+        color: $tertiary-text;
+        display: block;
+        font-size: 0.9rem;
+        margin-top: 2px;
+      }
+    }
+  }
+  
+  // Responsive Design
+  @media (max-width: $breakpoint-tablet) {
+    padding: $section-padding-tablet;
+    
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: $spacing-md;
+      text-align: center;
+    }
+    
+    .about-image {
+      justify-self: center;
+      
+      img {
+        max-width: 250px;
+        height: 250px;
+      }
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: $section-padding-mobile;
+    
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: $spacing-md;
+    }
+    
+    .about-text p {
+      font-size: 1rem;
+      
+      &.intro {
+        font-size: 1.1rem;
+      }
+    }
+    
+    .about-details {
+      gap: $spacing-md;
+      
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

@@ -1,1 +1,41 @@
-<p>skills works!</p>
+<section class="skills-section">
+  <div class="container">
+    <h2 class="section-title">Habilidades</h2>
+    
+    <div class="skills-categories">
+      <div class="category">
+        <h3 class="category-title">Frontend</h3>
+        <div class="skills-grid">
+          <div class="skill-card" *ngFor="let skill of frontendSkills">
+            <div class="skill-info">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-percentage">{{ skill.level }}%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" #progressBar 
+                   [attr.data-level]="skill.level">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="category">
+        <h3 class="category-title">Backend</h3>
+        <div class="skills-grid">
+          <div class="skill-card" *ngFor="let skill of backendSkills">
+            <div class="skill-info">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-percentage">{{ skill.level }}%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" #progressBar 
+                   [attr.data-level]="skill.level">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

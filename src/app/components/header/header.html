@@ -2,16 +2,16 @@
   <nav class="nav-container">
     <!-- Logo -->
     <div class="logo">
-      <a href="#home">Mi Portafolio</a>
+      <a (click)="scrollToSection('home')">Photonik Systems</a>
     </div>
 
     <!-- Navigation Links -->
     <ul class="nav-links" [class.open]="isMenuOpen">
-      <li><a href="#home" (click)="closeMenu()">Inicio</a></li>
-      <li><a href="#about" (click)="closeMenu()">Sobre Mí</a></li>
-      <li><a href="#skills" (click)="closeMenu()">Habilidades</a></li>
-      <li><a href="#projects" (click)="closeMenu()">Proyectos</a></li>
-      <li><a href="#contact" (click)="closeMenu()">Contacto</a></li>
+      <li><a (click)="scrollToSection('home')">Inicio</a></li>
+      <li><a (click)="scrollToSection('about')">Sobre Mí</a></li>
+      <li><a (click)="scrollToSection('skills')">Habilidades</a></li>
+      <li><a (click)="scrollToSection('projects')">Proyectos</a></li>
+      <li><a (click)="scrollToSection('contact')">Contacto</a></li>
     </ul>
 
     <!-- Mobile Menu Toggle -->
