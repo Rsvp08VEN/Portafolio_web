@@ -6,14 +6,16 @@
       <div class="category">
         <h3 class="category-title">Frontend</h3>
         <div class="skills-grid">
-          <div class="skill-card" *ngFor="let skill of frontendSkills">
+          <div class="skill-card" *ngFor="let skill of frontendSkills; let i = index">
             <div class="skill-info">
               <span class="skill-name">{{ skill.name }}</span>
               <span class="skill-percentage">{{ skill.level }}%</span>
             </div>
             <div class="progress-container">
-              <div class="progress-bar" #progressBar 
-                   [attr.data-level]="skill.level">
+              <div class="progress-bar" 
+                   [class.animate]="isVisible"
+                   [style.width.%]="isVisible ? skill.level : 0"
+                   [style.animation-delay.ms]="i * 200">
               </div>
             </div>
           </div>
@@ -23,14 +25,16 @@
       <div class="category">
         <h3 class="category-title">Backend</h3>
         <div class="skills-grid">
-          <div class="skill-card" *ngFor="let skill of backendSkills">
+          <div class="skill-card" *ngFor="let skill of backendSkills; let i = index">
             <div class="skill-info">
               <span class="skill-name">{{ skill.name }}</span>
               <span class="skill-percentage">{{ skill.level }}%</span>
             </div>
             <div class="progress-container">
-              <div class="progress-bar" #progressBar 
-                   [attr.data-level]="skill.level">
+              <div class="progress-bar" 
+                   [class.animate]="isVisible"
+                   [style.width.%]="isVisible ? skill.level : 0"
+                   [style.animation-delay.ms]="(frontendSkills.length + i) * 200">
               </div>
             </div>
           </div>

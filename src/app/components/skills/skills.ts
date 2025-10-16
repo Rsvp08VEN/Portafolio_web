@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -14,8 +14,7 @@ interface Skill {
   templateUrl: './skills.html',
   styleUrl: './skills.scss'
 })
-export class Skills implements OnInit, AfterViewInit {
-  @ViewChildren('progressBar') progressBars!: QueryList<ElementRef>;
+export class Skills implements OnInit {
   
   skills: Skill[] = [
     { name: 'Angular', level: 100, category: 'Frontend' },
@@ -37,7 +36,7 @@ export class Skills implements OnInit, AfterViewInit {
     { name: 'Electron JS', level: 60, category: 'Backend' }
   ];
   
-  animationTriggered = false;
+  isVisible = false;
   
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   
@@ -49,35 +48,15 @@ export class Skills implements OnInit, AfterViewInit {
     return this.skills.filter(skill => skill.category === 'Backend');
   }
   
-  ngOnInit() {}
-  
-  ngAfterViewInit() {
-    this.observeSection();
-  }
-  
-  private observeSection() {
+  ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !this.animationTriggered) {
-            this.animationTriggered = true;
-            this.animateProgressBars();
-          }
-        });
-      }, { threshold: 0.3 });
+      // Reset animation state
+      this.isVisible = false;
       
-      const skillsSection = document.querySelector('.skills-section');
-      if (skillsSection) {
-        observer.observe(skillsSection);
-      }
-    }
-  }
-  
-  private animateProgressBars() {
-    this.progressBars.forEach((progressBar, index) => {
+      // Trigger animation after component loads
       setTimeout(() => {
-        progressBar.nativeElement.style.width = `${progressBar.nativeElement.dataset['level']}%`;
-      }, index * 100);
-    });
+        this.isVisible = true;
+      }, 300);
+    }
   }
 }
