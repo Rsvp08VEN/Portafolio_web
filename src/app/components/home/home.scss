@@ -4,10 +4,10 @@
 // Estilos para el contenedor principal
 .main-content {
     min-height: 100vh;
-    padding-top: 2rem; // Espacio para el header sticky
+    padding-top: 2rem;
 }
 
-// Estilos temporales para las secciones
+// Estilos para las secciones
 .section {
     min-height: 50vh;
     display: flex;
@@ -18,7 +18,6 @@
     
     &#home {
         min-height: 80vh;
-        background: linear-gradient(135deg, rgba($accent-color, 0.1) 0%, rgba($primary-bg, 1) 100%);
     }
     
     &:nth-child(even) {
