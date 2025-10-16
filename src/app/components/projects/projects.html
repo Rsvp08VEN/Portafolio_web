@@ -1,1 +1,35 @@
-<p>projects works!</p>
+<section class="projects-section">
+  <div class="container">
+    <h2 class="section-title">Proyectos</h2>
+    <p class="section-subtitle">Algunos de mis trabajos más destacados</p>
+    
+    <div class="projects-grid">
+      <div 
+        class="project-card" 
+        *ngFor="let project of projects"
+        (click)="openProject(project.url)"
+      >
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.title" />
+          <div class="project-overlay">
+            <span class="view-project">Ver Proyecto</span>
+          </div>
+        </div>
+        
+        <div class="project-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          
+          <div class="project-technologies">
+            <span 
+              class="tech-tag" 
+              *ngFor="let tech of project.technologies"
+            >
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

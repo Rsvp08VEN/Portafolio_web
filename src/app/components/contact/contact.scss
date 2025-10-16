@@ -1,0 +1,144 @@
+.contact-section {
+  padding: 80px 0;
+  background: #fff;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 50px;
+  }
+
+  .social-networks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+  }
+
+  .social-card {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid #f0f0f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      border-color: var(--social-color);
+
+      .social-icon i {
+        transform: scale(1.1);
+      }
+
+      .social-overlay {
+        opacity: 1;
+      }
+
+      .social-name {
+        color: var(--social-color);
+      }
+    }
+  }
+
+  .social-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+
+    i {
+      font-size: 2.5rem;
+      color: var(--social-color);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .social-info {
+    margin-bottom: 15px;
+  }
+
+  .social-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+  }
+
+  .social-username {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .social-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--social-color);
+    color: white;
+    padding: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    .connect-text {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 0;
+
+    .social-networks-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .social-card {
+      padding: 25px 15px;
+    }
+
+    .social-icon {
+      width: 70px;
+      height: 70px;
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+}

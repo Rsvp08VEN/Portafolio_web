@@ -1,1 +1,28 @@
-<p>contact works!</p>
+<section class="contact-section">
+  <div class="container">
+    <h2 class="section-title">Contacto</h2>
+    <p class="section-subtitle">Conecta conmigo en mis redes sociales</p>
+    
+    <div class="social-networks-grid">
+      <div 
+        class="social-card" 
+        *ngFor="let social of socialNetworks"
+        (click)="openSocialNetwork(social.url)"
+        [style.--social-color]="social.color"
+      >
+        <div class="social-icon">
+          <i [class]="social.iconClass"></i>
+        </div>
+        
+        <div class="social-info">
+          <h3 class="social-name">{{ social.name }}</h3>
+          <p class="social-username">{{ social.username }}</p>
+        </div>
+        
+        <div class="social-overlay">
+          <span class="connect-text">Conectar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
